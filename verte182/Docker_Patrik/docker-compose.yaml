@@ -1,0 +1,33 @@
+version: '3.8'
+
+
+services:
+
+  datum-cas:
+
+    container_name: datum-cas-container
+
+    build:
+
+      context: .
+
+      dockerfile: Dockerfile
+
+    ports:
+
+      - "8080:8080"
+
+    command: ash -c "echo 'Aktuální datum a čas:'; date"
+
+
+  test:
+
+    container_name: test-container
+
+    build:
+
+      context: .
+
+      dockerfile: Dockerfile
+
+    command: ash -c "echo 'Testovací fáze:OK'"
